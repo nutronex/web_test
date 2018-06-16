@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+{% block content%}
+{%for post in posts %}
+<div><p>{{post.author_name}} says : <b> {{post.body}} </b></p>
+{%endfor%}
+{%if form%}
+<form action="/login" method="post">
+    {{form.hidden_tag()}}
+    <p>{{form.name.label}}<br> {{form.name(size=20)}}</p>
+    <p>{{form.password.label}}<br> {{form.password(size=20)}}</p>
+    <p>{{form.remember_me.label}}<br> {{form.remember_me()}}</p>
+    <p>{{form.submit()}}</p>
+</form>
+{%endif%}
+
+{%endblock%}
+
